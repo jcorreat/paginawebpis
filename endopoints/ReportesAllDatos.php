@@ -2,7 +2,7 @@
 include('conexion.php');
 $result = array();
 $result['lectura'] = array();
-$select = 'SELECT `id_lectura`, `data_decibel`, `fecha_creacion`, `dispositivo_id` FROM `lectura`';
+$select = 'SELECT `l.id_lectura`, `l.data_decibel`, `l.fecha_creacion`, `a.descripcion` FROM `lectura` l, `alerta` a WHERE `l.id_lectura` = `a.data_id`';
 $mostrar = mysqli_query($conexion, $select);
 
 while ($row = mysqli_fetch_array($mostrar)) {
